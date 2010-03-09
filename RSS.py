@@ -59,7 +59,7 @@ TODO:
 """
 
 __license__ = """
-Copyright (c) 2004 Mark Nottingham <mnot@pobox.com>
+Copyright (c) 2004-2010 Mark Nottingham <mnot@pobox.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -80,9 +80,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-__version__ = "0.47"
+__version__ = "0.48"
 
-import UserDict, sys, codecs, sha, types, signal
+import UserDict, sys, codecs, hashlib, types, signal
 import xml.sax as sax
 import xml.sax.saxutils as saxutils
 import cPickle as pickle
@@ -640,7 +640,7 @@ class RSSParser(sax.handler.ContentHandler):
 
 
 def _make_hash(data):
-    return "hash-data:SHA:" + sha.new(pickle.dumps(data)).hexdigest()[:20]
+    return "hash-data:SHA:" + hashlib.sha1(pickle.dumps(data)).hexdigest()[:20]
 
 
 if __name__ == "__main__":
