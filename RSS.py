@@ -165,7 +165,9 @@ rssSections = [ (ns.rss10, 'channel'),
 
 # RSS core element localnames
 rssElements = ['rss', 'channel', 'image', 'textarea', 'item', 'items', 
-               'title', 'link', 'description', 'url']
+               'title', 'link', 'description', 'url','pubDate']
+
+
 
 # RSS elements whose data is in an rdf:resource attribute
 rdfResources = [    (ns.rss10, 'image'), 
